@@ -153,9 +153,9 @@ body {
         width: 90%;
         margin: 0 auto;
     }
-    .swiper-slide--hidden:nth-child(7),
-    .swiper-slide--hidden:nth-child(8) {
-        display: block;
+    .brend__item:nth-child(8),
+    .brend__item:nth-child(9) {
+        display: inline-flex;
     }
     .swiper_slide__hidden {
         display: none;   
