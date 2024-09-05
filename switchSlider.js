@@ -1,28 +1,21 @@
 const slideHidden = document.querySelectorAll('.swiper_slide__hidden');
-let result = true;
+const btnShow = document.getElementById('showMore');
 
 window.addEventListener('DOMContenLoader', switchSlider());
 
-document.addEventListener('click', event => {
-  if (event.target.matches(".expander")) {
-    btnShow(event);
+btnShow.addEventListener('click', (event) => {
     slideHidden.forEach(element => 
-          element.classList.toggle('swiper_slide__hidden')
-        );
-  }
-});
-
-function btnShow (event) {
-  if ( result ) {
-    event.target.textContent = 'Скрыть';
-    event.target.classList.toggle('expander_more');
-    result = false;
-  } else {
-    event.target.textContent = 'Показать всё';
-    event.target.classList.toggle('expander_more');
-    result = true;
-  } 
-}
+      element.classList.toggle('swiper_slide__hidden')
+    );
+    
+    if ( event.target.classList.contains('expander_more') ) {
+      event.target.textContent = 'Показать всё';
+      event.target.classList.toggle('expander_more');
+    } else {
+      event.target.textContent = 'Скрыть';
+      event.target.classList.toggle('expander_more');
+    } 
+  });
 
 function switchSlider () {
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings) => {
